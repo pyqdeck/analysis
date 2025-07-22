@@ -11,7 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Animate on Scroll (AOS) CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,11 +27,21 @@
         .glow-border {
             box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
         }
+        .card {
+            background-color: #1E293B; /* slate-800 */
+            border-radius: 12px;
+            border: 1px solid #334155; /* slate-700 */
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #525f76; /* slate-600 */
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-300 antialiased">
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="text-center py-16 px-4 border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm">
         <h1 class="text-5xl md:text-7xl font-bold tracking-tight" data-aos="fade-down">
             <span class="bg-gradient-to-r from-sky-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
@@ -39,17 +49,11 @@
             </span>
         </h1>
         <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-400" data-aos="fade-up" data-aos-delay="200">
-            Exam is TOMORROW. This is the ultimate guide based on a full analysis of all past papers (2014-2023). Focus on this and you'll ace it.
+            The complete analysis of all past papers (2014-2023). This is your final, focused guide for tomorrow's exam.
         </p>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        <!-- Alert Box -->
-        <div class="bg-amber-500/10 border border-amber-500/30 text-amber-300 px-4 py-3 rounded-lg relative mb-16 text-center" role="alert" data-aos="zoom-in">
-          <strong class="font-bold">Heads Up!</strong>
-          <span class="block sm:inline ml-2">This is a high-intensity, focused plan. Prioritize Tier 1 topics first.</span>
-        </div>
 
         <!-- Topic Importance Chart -->
         <section id="charts" class="mb-20" data-aos="fade-up">
@@ -63,32 +67,99 @@
         <section id="tier1" class="mb-20">
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold">Tier 1: The <span class="text-emerald-400">Guaranteed Marks</span> Zone</h2>
-                <p class="mt-4 text-lg text-slate-400">These topics are on almost every paper. Master them tonight for maximum ROI.</p>
+                <p class="mt-4 text-lg text-slate-400">These topics are on almost every paper. Master them tonight for maximum return on investment.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-800 p-6 rounded-xl border border-emerald-500/30 transition-transform duration-300 hover:scale-105 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="font-bold text-xl mb-4 text-emerald-300">The Holy Trinity of Graph Proofs</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Tree with 'n' vertices has '(n-1)' edges.</span></li>
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Sum of degrees is 2 * |E| (Handshaking).</span></li>
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Graph remains connected IFF removed edge is in a circuit.</span></li>
+                <div class="card p-6 border-emerald-500/30 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-bold text-xl mb-4 text-emerald-300">Must-Know Graph Theory Proofs</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">1.</span><span>A tree with 'n' vertices has '(n-1)' edges. (Proof by induction).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">2.</span><span>Sum of degrees is 2 * |E| (Handshaking Lemma).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">3.</span><span>Graph remains connected after removing edge 'e' IFF 'e' is in a circuit.</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">4.</span><span>Every tree with two or more vertices is 2-chromatic.</span></li>
                     </ul>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-xl border border-emerald-500/30 transition-transform duration-300 hover:scale-105 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="font-bold text-xl mb-4 text-emerald-300">Classic Group Theory Proofs</h3>
-                     <ul class="space-y-3">
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>One-step subgroup test (a * b⁻¹ ∈ H).</span></li>
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Group of prime order is cyclic.</span></li>
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>State and prove Lagrange's Theorem.</span></li>
+                <div class="card p-6 border-emerald-500/30 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-bold text-xl mb-4 text-emerald-300">Must-Know Algebraic Proofs</h3>
+                     <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">1.</span><span>The one-step subgroup test (a * b⁻¹ ∈ H).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">2.</span><span>Every group of prime order (e.g., 3, 5, 7) is cyclic. (Use Lagrange's).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">3.</span><span>State and Prove Lagrange's Theorem.</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">4.</span><span>Prove De Morgan's Laws for sets.</span></li>
                     </ul>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-xl border border-emerald-500/30 transition-transform duration-300 hover:scale-105 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="font-bold text-xl mb-4 text-emerald-300">Unavoidable Counting Problems</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Inclusion-Exclusion (e.g., swim/jog).</span></li>
-                        <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Pigeonhole Principle (at least X share...).</span></li>
-                         <li class="flex items-start"><svg class="w-5 h-5 mr-2 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Permutations with a fixed substring.</span></li>
+                <div class="card p-6 border-emerald-500/30 hover:border-emerald-500/70" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-bold text-xl mb-4 text-emerald-300">Must-Solve Problem Types</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">1.</span><span>Inclusion-Exclusion Principle (e.g., swim/jog, faulty cars).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">2.</span><span>Proof by Induction (e.g., `1.1! + ... + n.n! = (n+1)!-1`).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">3.</span><span>Pigeonhole Principle (e.g., `at least ⌈N/K⌉` share...).</span></li>
+                        <li class="flex items-start"><span class="font-semibold text-emerald-400 mr-2">4.</span><span>Proof by Contradiction (e.g., √2 is irrational).</span></li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tier 2: High-Probability Zone -->
+        <section id="tier2" class="mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold">Tier 2: The <span class="text-sky-400">High-Probability</span> Zone</h2>
+                <p class="mt-4 text-lg text-slate-400">If you're solid on Tier 1, these are your next targets. They appear very frequently.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="card p-6 border-sky-500/30 hover:border-sky-500/70" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-bold text-xl mb-4 text-sky-300">Logic & Boolean Algebra</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li>Prove a statement is a tautology (using truth tables or logical equivalences).</li>
+                        <li>Find PDNF (Sum of Products) and PCNF (Product of Sums) of a function.</li>
+                    </ul>
+                </div>
+                <div class="card p-6 border-sky-500/30 hover:border-sky-500/70" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-bold text-xl mb-4 text-sky-300">Graph Algorithms in Action</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li>Apply Dijkstra's algorithm to find the shortest path in a weighted graph.</li>
+                        <li>Apply BFS for shortest path in an unweighted graph and for traversal.</li>
+                        <li>Determine Chromatic Number of a given graph.</li>
+                    </ul>
+                </div>
+                <div class="card p-6 border-sky-500/30 hover:border-sky-500/70" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-bold text-xl mb-4 text-sky-300">Structure Verification Problems</h3>
+                    <ul class="space-y-3 text-slate-300">
+                        <li>Prove a given relation is an Equivalence Relation.</li>
+                        <li>Prove a set with custom operations (like a*b = a+b-ab) forms a Group, Ring, or Semigroup.</li>
+                        <li>Find roots of a polynomial over a Ring (e.g., Z₁₀).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Wins Section -->
+        <section id="quick-wins" class="mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold">Tier 3: <span class="text-amber-400">Quick Wins</span> for MCQs</h2>
+                <p class="mt-4 text-lg text-slate-400">Rapid-fire review for the compulsory Question 1. These are easy marks.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div class="card p-4 text-center" data-aos="zoom-in" data-aos-delay="50">
+                    <h4 class="font-bold text-amber-300 mb-2">Formulas</h4>
+                    <p class="text-sm">Functions (mⁿ)</p>
+                    <p class="text-sm">Relations (2ⁿ²)</p>
+                    <p class="text-sm">Proper Subsets (2ⁿ-1)</p>
+                </div>
+                <div class="card p-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <h4 class="font-bold text-amber-300 mb-2">Logic Rules</h4>
+                    <p class="text-sm">p → q ≡ ¬p ∨ q</p>
+                    <p class="text-sm">Contrapositive of p→q is ¬q→¬p</p>
+                </div>
+                <div class="card p-4 text-center" data-aos="zoom-in" data-aos-delay="150">
+                    <h4 class="font-bold text-amber-300 mb-2">Definitions</h4>
+                    <p class="text-sm">Reflexive, Symmetric, Transitive</p>
+                    <p class="text-sm">Poset, Lattice, Monoid</p>
+                </div>
+                <div class="card p-4 text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <h4 class="font-bold text-amber-300 mb-2">Group Theory</h4>
+                    <p class="text-sm">Homomorphism: f(eG) = eG'</p>
+                    <p class="text-sm">Subgroups of a prime group: 2 (trivial)</p>
                 </div>
             </div>
         </section>
@@ -101,7 +172,7 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-slate-800/50 p-6 rounded-xl border-2 border-red-500/70 glow-border" data-aos="fade-right">
-                    <h3 class="font-bold text-2xl mb-4 flex items-center"><svg class="w-7 h-7 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5-2.98-.5-3.458 3.458-2.023 9.043 2.023 12.043 4.046 3.001 8.585 1.576 12.043-2.023C22.5 13.5 19 13 17 13c1 2 .5 5-1.343 1.657z"></path></svg>Paper 1: 2023 Exam</h3>
+                    <h3 class="font-bold text-2xl mb-4 flex items-center">Paper 1: 2023 Exam</h3>
                     <p class="font-medium text-slate-300 mb-3">This paper is your crystal ball. It shows the most recent exam trends and question styles.</p>
                     <ul class="space-y-2 text-slate-400">
                         <li><span class="text-green-400 font-bold">✓</span> Equivalence Relation Proof</li>
@@ -110,7 +181,7 @@
                     </ul>
                 </div>
                 <div class="bg-slate-800/50 p-6 rounded-xl border-2 border-red-500/70 glow-border" data-aos="fade-left">
-                    <h3 class="font-bold text-2xl mb-4 flex items-center"><svg class="w-7 h-7 mr-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5-2.98-.5-3.458 3.458-2.023 9.043 2.023 12.043 4.046 3.001 8.585 1.576 12.043-2.023C22.5 13.5 19 13 17 13c1 2 .5 5-1.343 1.657z"></path></svg>Paper 2: 2022 Exam</h3>
+                    <h3 class="font-bold text-2xl mb-4 flex items-center">Paper 2: 2022 Exam</h3>
                     <p class="font-medium text-slate-300 mb-3">A goldmine of classic proofs and algorithms. Solving this builds core confidence.</p>
                     <ul class="space-y-2 text-slate-400">
                         <li><span class="text-green-400 font-bold">✓</span> Dijkstra's Algorithm Application</li>
@@ -128,7 +199,7 @@
                 <p class="mt-4 text-lg text-slate-400">Execute this plan in the exam hall.</p>
             </div>
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700" data-aos="fade-right">
+                <div class="card p-6" data-aos="fade-right">
                     <h3 class="font-bold text-xl mb-4 text-sky-300">Before You Write</h3>
                     <ol class="list-decimal list-inside space-y-3 text-slate-300">
                         <li><span class="font-bold">Deep Breath:</span> Stay calm. You've prepared.</li>
@@ -136,7 +207,7 @@
                         <li><span class="font-bold">Pick Your Battles:</span> Identify your 4 strongest long-answer questions. Lock them in.</li>
                     </ol>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700" data-aos="fade-left">
+                <div class="card p-6" data-aos="fade-left">
                     <h3 class="font-bold text-xl mb-4 text-sky-300">While You Write</h3>
                     <ol class="list-decimal list-inside space-y-3 text-slate-300">
                         <li><span class="font-bold">Start with Q1:</span> It's compulsory. Get it done.</li>
@@ -155,16 +226,15 @@
         <p class="text-slate-500 mt-2">Trust the patterns. You've got this.</p>
     </footer>
 
-    <!-- Animate on Scroll (AOS) JS -->
+    <!-- JS Libraries -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- ApexCharts JS -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <script>
         // Initialize Animate on Scroll
         AOS.init({
             duration: 700,
-            once: true, // Animation happens only once
+            once: true,
         });
 
         // ApexCharts Configuration
@@ -177,7 +247,7 @@
                 type: 'bar',
                 height: 350,
                 toolbar: { show: false },
-                foreColor: '#94a3b8' // slate-400 for text
+                foreColor: '#94a3b8'
             },
             plotOptions: {
                 bar: {
@@ -186,16 +256,16 @@
                     barHeight: '60%',
                 }
             },
-            colors: ['#2dd4bf'], // emerald-400
+            colors: ['#2dd4bf'],
             dataLabels: {
                 enabled: true,
                 textAnchor: 'start',
                 style: {
-                    colors: ['#0f172a'] // slate-900
+                    colors: ['#0f172a'],
+                    fontFamily: 'Inter',
+                    fontWeight: 500
                 },
-                formatter: function (val, opt) {
-                    return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val + "%"
-                },
+                formatter: (val, opt) => opt.w.globals.labels[opt.dataPointIndex] + ":  " + val + "%",
                 offsetX: 0,
             },
             xaxis: {
@@ -208,28 +278,23 @@
                 ],
                  labels: { show: false },
             },
-            yaxis: {
-                labels: { show: false }
-            },
+            yaxis: { labels: { show: false } },
             grid: {
-                borderColor: '#1e293b', // slate-800
+                borderColor: '#1e293b',
                 xaxis: { lines: { show: false } },
                 yaxis: { lines: { show: false } }
             },
             tooltip: {
                 theme: 'dark',
-                y: {
-                    formatter: function(val) {
-                        return val + "% appearance rate in long-answer questions"
-                    }
-                }
+                y: { formatter: (val) => val + "% appearance rate in long-answer questions" }
             },
              title: {
                 text: 'Module Weightage based on Past Papers',
                 align: 'center',
                 style: {
                     fontSize: '18px',
-                    color: '#cbd5e1' // slate-300
+                    fontFamily: 'Sora',
+                    color: '#cbd5e1'
                 }
             },
         };
